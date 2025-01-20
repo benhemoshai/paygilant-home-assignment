@@ -6,7 +6,7 @@ The Paygilant Home Assignment is a React-based application that allows users to 
 
 ### Preview:
 
-[Preview](./src/assets/demo-gif.gif)
+![Preview](./src/assets/demo-gif.gif)
 
 ### Link to a demo:
 
