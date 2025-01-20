@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {createPost} from '../services/postService';
+import {Send, PenLine} from "lucide-react";
 
 function NewPost() {
 
@@ -13,7 +14,7 @@ function NewPost() {
         createPost({title: title, body: content, userId: 1})
             .then((data) => {
                 console.log('Post Created:', data);
-                alert('Post added successfully!');
+                alert('Post created successfully!');
                 navigate('/');
             })
             .catch((error) => {
@@ -24,44 +25,66 @@ function NewPost() {
 
 
     return (
-        <div className="max-w-xl mx-auto mt-10 bg-white p-6 rounded-3xl shadow-md" onSubmit={handleSubmit}>
-            <h1 className="text-2xl font-bold text-center mb-6 text-gray-700">Add New Post</h1>
-            <form className="space-y-4">
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Title:
-                    </label>
-                    <input
-                        type="text"
-                        name="title"
-                        className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter the title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        required
-                    />
+        <div className="max-w-3xl mx-auto px-4 py-12">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-6">
+                <div className="flex items-center space-x-3">
+                    <PenLine className="w-8 h-8 text-white" />
+                    <h1 className="text-2xl font-bold text-white">Create New Post</h1>
                 </div>
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Content:
-                    </label>
-                    <textarea
-                        name="content"
-                        className="w-full border border-gray-300 rounded-lg p-2 h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter the content"
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                        required
+            </div>
 
-                    />
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="p-8">
+                <div className="space-y-6">
+                    {/* Title Input */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Title
+                        </label>
+                        <input
+                            type="text"
+                            name="title"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                            placeholder="Enter an engaging title..."
+                            required
+                        />
+                    </div>
+
+                    {/* Content Input */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Content
+                        </label>
+                        <textarea
+                            name="content"
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
+                            rows={8}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none"
+                            placeholder="Write your post content here..."
+                            required
+                        />
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="flex justify-end">
+                        <button
+                            type="submit"
+                            className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl font-medium text-white
+                                bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 
+                                transform hover:-translate-y-0.5 transition-all duration-200 shadow-lg"
+                        >
+                            <span>Publish Post</span>
+                            <Send className="w-4 h-4" />
+                        </button>
+                    </div>
                 </div>
-                <button
-                    type="submit"
-                    className="w-full bg-blue-500 text-white py-2 rounded-lg font-medium hover:bg-blue-600 transition duration-300"
-                >
-                    Submit
-                </button>
             </form>
+        </div>
         </div>
     );
 }

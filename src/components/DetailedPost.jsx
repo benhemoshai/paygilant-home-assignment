@@ -21,6 +21,7 @@ function DetailedPost(){
           setComments(commentsData)
           setIsLoading(false)
         } catch (err) {
+          console.log("Error fetching post:", err);
           setError(err.message)
           setIsLoading(false)
         }
@@ -53,14 +54,14 @@ function DetailedPost(){
         <div className="max-w-4xl mx-auto px-4 py-8">
           <article className="bg-white rounded-xl shadow-lg overflow-hidden">
             {/* Post Header */}
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-8 text-white">
+            <div className="bg-gradient-to-r from-purple-500 to-blue-300 p-8 text-white">
               <h1 className="text-4xl font-bold mb-4 leading-tight">
                 {post?.title}
               </h1>
               <div className="flex items-center space-x-4">
                 <div className="w-10 h-10 rounded-full bg-white/30" />
                 <div>
-                  <p className="font-medium">Author Name</p>
+                  <p className="font-medium">Post Writer</p>
                   <p className="text-sm opacity-75">Posted on {new Date().toLocaleDateString()}</p>
                 </div>
               </div>
