@@ -8,13 +8,13 @@ export const fetchPosts = async () => {
     return response.data;
 };
 
-//Fetch a post by its ID
+// Fetch a post by its ID
 export const fetchPost = async (id) => {
     const response = await axios.get(`${API_BASE_URL}/posts/${id}`)
     return response.data
   }
 
-
+// Fetch the post comments by its ID
 export const fetchComments = async (postId) => {
 const response = await axios.get(`${API_BASE_URL}/comments?postId=${postId}`)
 return response.data

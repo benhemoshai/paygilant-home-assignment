@@ -49,7 +49,7 @@ function NewPost() {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-                            placeholder="Enter an engaging title..."
+                            placeholder="Enter a title..."
                             required
                         />
                     </div>
@@ -65,7 +65,7 @@ function NewPost() {
                             onChange={(e) => setContent(e.target.value)}
                             rows={8}
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none"
-                            placeholder="Write your post content here..."
+                            placeholder="Enter your post content..."
                             required
                         />
                     </div>
